@@ -1,4 +1,5 @@
-#!/usr/bin/env python3
+#!/home/anubitux/Tools/Recovery/SeedSearch.py/ssve/bin/python3
+
 
 import urllib.request
 import requests
