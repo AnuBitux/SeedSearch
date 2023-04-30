@@ -1,4 +1,7 @@
 # SeedSearch.py
+
+## This version of the tool has been customized to work with the [AnuBitux](https://anubitux.org) live system. To use it with other environments, please refer to the [main branch](https://github.com/ASeriousMister/SeedSearch.py)
+
 A python tool that scans files in directories and subdirectories hunting BIP39 mnemonic seeds.
 It is part of the bigger project Anu₿itux: more info at https://anubitux.org.
 
@@ -12,56 +15,6 @@ Running issued could be encountered due to APIs limits. To check only a few seed
 
 ## Tutorial
 [Here](https://anubitux.org/search-for-bip39-seeds-with-anubitux/) you can see how the tool works.
-
-## Installation
-The tool was tested in Ubuntu 20.04 with Python3.8 and Ubuntu 22.04 with Python3.10.
-I suggest tu run the tool in his own virtual environment.
-Python shoul be installed by default. If not so, update your repositories
-```
-sudo apt update
-```
-and type
-```
-sudo apt install python3
-```
-Then install pip, to easily install the dependencies
-```
-sudo apt install python3-pip
-```
-Now clone the github repository
-```
-git clone https://github.com/ASeriousMister/SeedSearch.py
-```
-and install python virtual environments
-```
-pip3 install virtualenv
-```
-Now move to SeedCheck.py's directory,
-```
-cd SeedCheck.py
-```
-create a virtual environment (in the example named scve, but you can choose your preferred name)
-```
-virtualenv ssve
-```
-and activate it
-```
-source ssve/bin/activate
-```
-The name of the virtual environment should appear, in brackets, on the left of your command line. 
-Now you can install the dependencies
-```
-pip3 install -r requirements.txt
-```
-Finally, you are ready to run the tool
-```
-python3 seedsearch.py -d /directory/to/scan
-```
-Sometimes pip may not install the packages listed in requirements.txt in the proper way.
-In this case, just install the missing package shown in the error message with
-```
-pip3 install {missing_package_name}
-```
 
 
 ## Supported derivations
@@ -102,25 +55,6 @@ The tool supports the following coins with the indicated derivation paths:
 - [BIPs](https://github.com/bitcoin/bips)
 - [HD wallet](https://pypi.org/project/hdwallet/)
 
-### Troubleshooting
-The tool may encounter some issues running with Ubuntu 22.04, due to incompatibility with ripemd160 hashes used by the hdwallet library.
-To solve this you need to edit the /etc/ssl/openssl.cnf file, making sure that it contains all the following lines:
-```
-openssl_conf = openssl_init
-
-[openssl_init]
-providers = provider_sect
-
-[provider_sect]
-default = default_sect
-legacy = legacy_sect
-
-[default_sect]
-activate = 1
-
-[legacy_sect]
-activate = 1
-```
 
 ## Disclaimer
 SeedSearch.py aims to find seeds stored in files. Its cearch has not to be considered exhaustive, because mnemonic seeds can be easily hidden placed other words between the ones composing the mnemonic, scrambling letters, etc.
