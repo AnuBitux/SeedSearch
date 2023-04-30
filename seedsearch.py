@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/home/anubitux/Tools/Recovery/SeedSearch.py/ssve/bin/python3
 
 from hdwallet.utils import is_mnemonic
 import os
@@ -19,6 +19,7 @@ class color:
     UNDERLINE = '\033[4m'
     END = '\033[0m'
 
+
 # intro
 print(color.YELLOW + "Welcome to seedsearch.py! Let\'s hunt for some BIP39 mnemonic seed\n" + color.END)
 print(color.RED + 'DISCLAIMER: ' + color.END + 'This tool works with BIP39 seed')
@@ -33,6 +34,7 @@ directory = args.d
 # Quits if directory does not exist
 if not os.path.exists(directory):
     quit(color.RED + 'Directory does not exist!' + color.END)
+
 
 def getListOfFiles(dirName):
     # create a list of file and sub directories
@@ -54,47 +56,49 @@ def check_lang(word):
     f = open('Wordlists/b39en')
     if word in f.read():
         f.close()
-        return 'english'
+        return('english')
     f = open('Wordlists/b39it')
     if word in f.read():
         f.close()
-        return 'italian'
+        return('italian')
     f = open('Wordlists/b39cz')
     if word in f.read():
         f.close()
-        return 'czech'
+        return('czech')
     f = open('Wordlists/b39es')
     if word in f.read():
         f.close()
-        return 'spanish'
+        return('spanish')
     f = open('Wordlists/b39fr')
     if word in f.read():
         f.close()
-        return 'french'
+        return('french')
     f = open('Wordlists/b39pr')
     if word in f.read():
         f.close()
-        return 'portuguese'
+        return('portuguese')
     f = open('Wordlists/b39cn')
     if word in f.read():
         f.close()
-        return 'chinese_simplified'
+        return('chinese_simplified')
     f = open('Wordlists/b39cn2')
     if word in f.read():
         f.close()
-        return 'chinese_traditional'
+        return('chinese_traditional')
     f = open('Wordlists/b39jp')
     if word in f.read():
         f.close()
-        return 'japanese'
+        return('japanese')
     f = open('Wordlists/b39kr')
     if word in f.read():
         f.close()
-        return 'korean'
+        return('korean')
     f.close()
-    return 'none'
+    return ('none')
+
+
 def check_word(word, language):
-    if language == 'english':
+    if (language == 'english'):
         f = open('Wordlists/b39en')
         if word in f.read():
             f.close()
@@ -102,7 +106,7 @@ def check_word(word, language):
         else:
             f.close()
             return False
-    if language == 'italian':
+    if (language == 'italian'):
         f = open('Wordlists/b39it')
         if word in f.read():
             f.close()
@@ -110,7 +114,7 @@ def check_word(word, language):
         else:
             f.close()
             return False
-    if language == 'czech':
+    if (language == 'czech'):
         f = open('Wordlists/b39cz')
         if word in f.read():
             f.close()
@@ -118,7 +122,7 @@ def check_word(word, language):
         else:
             f.close()
             return False
-    if language == 'spanish':
+    if (language == 'spanish'):
         f = open('Wordlists/b39es')
         if word in f.read():
             f.close()
@@ -126,7 +130,7 @@ def check_word(word, language):
         else:
             f.close()
             return False
-    if language == 'french':
+    if (language == 'french'):
         f = open('Wordlists/b39fr')
         if word in f.read():
             f.close()
@@ -134,7 +138,7 @@ def check_word(word, language):
         else:
             f.close()
             return False
-    if language == 'portuguese':
+    if (language == 'portuguese'):
         f = open('Wordlists/b39pr')
         if word in f.read():
             f.close()
@@ -142,7 +146,7 @@ def check_word(word, language):
         else:
             f.close()
             return False
-    if language == 'chinese_simplified':
+    if (language == 'chinese_simplified'):
         f = open('Wordlists/b39cn')
         if word in f.read():
             f.close()
@@ -150,7 +154,7 @@ def check_word(word, language):
         else:
             f.close()
             return False
-    if language == 'chinese_traditional':
+    if (language == 'chinese_traditional'):
         f = open('Wordlists/b39cn2')
         if word in f.read():
             f.close()
@@ -158,7 +162,7 @@ def check_word(word, language):
         else:
             f.close()
             return False
-    if language == 'japanese':
+    if (language == 'japanese'):
         f = open('Wordlists/b39jp')
         if word in f.read():
             f.close()
@@ -166,7 +170,7 @@ def check_word(word, language):
         else:
             f.close()
             return False
-    if language == 'korean':
+    if (language == 'korean'):
         f = open('Wordlists/b39kr')
         if word in f.read():
             f.close()
@@ -174,7 +178,7 @@ def check_word(word, language):
         else:
             f.close()
             return False
-        
+
 
 # Get text from docx files
 def getText(filename):
@@ -185,12 +189,13 @@ def getText(filename):
     return '\n'.join(fullText)
 
 
-# Get the list of all files in the given path
+# Get the list of all files in the fiven path
 listOfFiles = getListOfFiles(directory)
 
 # Changes working directory to avoid issues with file opening
 # use full path to open wordlists or full path to open files
-# os.chdir('folder/with/wordlist')
+os.chdir('/home/anubitux/Tools/Recovery/SeedSearch.py')
+
 
 temp_seed = []  # list that stores the seed during execution
 seed_out = []
@@ -198,10 +203,8 @@ seed2check = []
 
 n_files = len(listOfFiles)
 print(color.BLUE + f'There are {n_files} files to scan' + color.END)
-
 i = 0
 # iterate through all the files
-# print(listOfFiles)
 while i < n_files:
     # manage docx files
     if '.docx' in listOfFiles[i]:
@@ -265,7 +268,7 @@ while i < n_files:
                 elif len(temp_seed) > 24:
                     temp_seed = []
         line = f.readline()
-
+        
 # Printing the output
     pr = 0
     if len(seed_out) > 0:
@@ -277,7 +280,7 @@ while i < n_files:
     seed_out = []
     f.close()
     i += 1
-
+    
 # delete temporary file
 if os.path.isfile(directory + 'fgrtgdtegd'):
     os.remove(directory + 'fgrtgdtegd')
