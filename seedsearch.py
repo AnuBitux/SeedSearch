@@ -1,4 +1,4 @@
-#!/home/anubitux/Tools/Recovery/SeedSearch.py/ssve/bin/python3
+#!/home/anubitux/Tools/Recovery/SeedSearch/ssve/bin/python3
 
 from hdwallet.utils import is_mnemonic
 import os
