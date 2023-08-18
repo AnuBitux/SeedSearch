@@ -1,4 +1,4 @@
-#!/home/anubitux/Tools/Recovery/SeedSearch.py/ssve/bin/python3
+#!/home/anubitux/Tools/Recovery/SeedSearch/ssve/bin/python3
 
 
 import urllib.request
@@ -367,7 +367,7 @@ listOfFiles = getListOfFiles(directory)
 
 # Changes working directory to avoid issues with file opening
 # use full path to open wordlists or full path to open files
-# os.chdir('folder/with/wordlist')
+os.chdir('/home/anubitux/Tools/Recovery/SeedSearch/')
 
 temp_seed = []  # list that stores the seed during execution
 seed_out = []
