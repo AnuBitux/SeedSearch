@@ -1,5 +1,3 @@
-#!/home/anubitux/Tools/Recovery/SeedSearch/ssve/bin/python3
-
 from hdwallet.utils import is_mnemonic
 import os
 import argparse
@@ -194,7 +192,8 @@ listOfFiles = getListOfFiles(directory)
 
 # Changes working directory to avoid issues with file opening
 # use full path to open wordlists or full path to open files
-os.chdir('/home/anubitux/Tools/Recovery/SeedSearch.py')
+user_folder = os.getlogin()
+os.chdir('/opt/Tools/Recovery/SeedSearch')
 
 
 temp_seed = []  # list that stores the seed during execution
