@@ -1,5 +1,7 @@
 #!/bin/bash
-
+echo ' '
+figlet SeedSearch
+echo ' '
 echo seedsearch.py is a python tool that scans all the files in a directory,
 echo including subdirectories, looking for BIP39 mnemonic seeds
 echo ''
