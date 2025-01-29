@@ -1,4 +1,4 @@
-hdwallet
+hdwallet==2.2.1
 blockcypher
 argparse
 requests
